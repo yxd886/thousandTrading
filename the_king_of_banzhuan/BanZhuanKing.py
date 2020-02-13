@@ -340,7 +340,7 @@ class BanZhuanKing:   # 套利策略主类库
         cur_size_23 = balance2[Z]['free'] if Z in balance2 else 0
         return cur_size_11,cur_size_12,cur_size_13,cur_size_21,cur_size_22,cur_size_23
 
-    def CheckTraingle(self,X,Y,Z):
+    def CheckTriangle(self,X,Y,Z):
         time.sleep(0.2)
         self.log.debug('--------------------')
         self.log.debug('当前检测三角对：%s %s %s'%(X,Y,Z))
@@ -1545,11 +1545,11 @@ class BanZhuanKing:   # 套利策略主类库
         self.log.info('====================')
         box = self.box
         for i in box[0]:
-            self.CheckTraingle("USDT", i, "BTC")
+            self.CheckTriangle("USDT", i, "BTC")
         for i in box[1]:
-            self.CheckTraingle("USDT", i, "ETH")
+            self.CheckTriangle("USDT", i, "ETH")
         for i in box[2]:
-            self.CheckTraingle("BTC", i, "ETH")
+            self.CheckTriangle("BTC", i, "ETH")
         # 采用多线程轮询无法发现交易机会，原因是线程过多导致卡顿，若开启此功能，需要服务器配置极其强悍
         # t1 = []
         # t2 = []
@@ -1557,11 +1557,11 @@ class BanZhuanKing:   # 套利策略主类库
         # result = []
         # box = self.box
         # for i in box[0]:
-        #     t1.append(MyThread(self.CheckTraingle, args=("USDT", i, "BTC",)))
+        #     t1.append(MyThread(self.CheckTriangle, args=("USDT", i, "BTC",)))
         # for i in box[1]:
-        #     t2.append(MyThread(self.CheckTraingle, args=("USDT", i, "ETH",)))
+        #     t2.append(MyThread(self.CheckTriangle, args=("USDT", i, "ETH",)))
         # for i in box[2]:
-        #     t3.append(MyThread(self.CheckTraingle, args=("BTC", i, "ETH",)))
+        #     t3.append(MyThread(self.CheckTriangle, args=("BTC", i, "ETH",)))
         # for t in [t1,t2,t3]:
         #     for i in t:
         #         i.setDaemon(True)
