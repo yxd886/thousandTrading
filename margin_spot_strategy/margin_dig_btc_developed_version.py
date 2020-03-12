@@ -7,6 +7,25 @@ import logging
 import threading
 import random
 
+'''
+from multiprocessing import Pool
+
+def test(p):     
+    return p
+
+if __name__=="__main__":
+    pool = Pool(processes=10)
+    result=[]
+    for i  in xrange(50000):
+       result.append(pool.apply_async(test, args=(i,)))#维持执行的进程总数为10，当一个进程执行完后添加新进程.       
+
+    pool.join()
+    for i in result:
+        print i.get()
+'''
+
+
+
 
 class MyThread(threading.Thread):
     def __init__(self, func, args=()):
